@@ -1,6 +1,6 @@
--- Deploy fresh database tabels:
+-- Deploy fresh tables
 \i '/docker-entrypoint-initdb.d/tables/users.sql'
 \i '/docker-entrypoint-initdb.d/tables/login.sql'
 
- -- For testing purposes only. This file will add dummy data
+-- Deploy initail data
 \i '/docker-entrypoint-initdb.d/seed/seed.sql'
