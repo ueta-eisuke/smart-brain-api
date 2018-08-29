@@ -1,20 +1,8 @@
 version: '3.6'
+
 services:
 
-   # PostgreSQL
-  postgres:
-    container_name: postgres
-    build: ./postgres
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-      POSTGRES_URL: postgres://admin:password@localhost:5432/smart-brain-docker
-      POSTGRES_DB: smart-brain-docker
-      POSTGRES_HOST: postgres
-    ports:
-      - "5432:5432"
-
-   # Backend
+  # Backend
   smart-brain-api:
     container_name: backend
     build: ./
@@ -28,3 +16,15 @@ services:
       POSTGRES_URI: postgres://admin:password@postgres:5432/smart-brain-docker
     links:
       - postgres
+
+   # PostgreSQL
+  postgres:
+    container_name: postgres
+    build: ./postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: smart-brain-docker
+      POSTGRES_HOST: postgres
+    ports:
+      - "5432:5432"
